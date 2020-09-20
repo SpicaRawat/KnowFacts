@@ -9,5 +9,8 @@
 import Foundation
 import UIKit
 
+// MARK: - API BASE PATH
+let BASEURL: String = "https://dl.dropboxusercontent.com/"
+
 // MARK: - Constants
 let constantPadding: CGFloat = 10

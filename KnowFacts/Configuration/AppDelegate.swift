@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     // MARK: - INITIAL CONTROLLER
     func setInitialController() {
-        let rootVC = FF_HomeVC()
+        let rootVC = KF_HomeVC()
         let navBarVC = UINavigationController(rootViewController: rootVC)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

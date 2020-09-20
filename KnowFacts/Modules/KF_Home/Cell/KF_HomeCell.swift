@@ -1,5 +1,5 @@
 //
-//  FF_HomeCell.swift
+//  KF_HomeCell.swift
 //  KnowFacts
 //
 //  Created by Spica Rawat on 20/09/20.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class FF_HomeCell: UITableViewCell {
+class KF_HomeCell: UITableViewCell {
 
     let borderVw: UIView = {
         let view = UIView()
@@ -85,8 +86,9 @@ class FF_HomeCell: UITableViewCell {
     }
     
     // MARK: - BIND DATA
-    func bindData() {
-        titleLbl.text = "Title"
-        descLbl.text = "Detail"
+    func bindData(fact: Fact) {
+        titleLbl.text = fact.title ?? ""
+        descLbl.text = fact.description ?? ""
+        factImage.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: UIImage(named: ""))
     }
 }

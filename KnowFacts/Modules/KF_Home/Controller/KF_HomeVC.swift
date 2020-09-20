@@ -1,22 +1,23 @@
 //
-//  FF_HomeVC.swift
+//  KF_HomeVC.swift
 //  KnowFacts
 //
 //  Created by Spica Rawat on 20/09/20.
 //  Copyright © 2020 spicarawat. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
-class FF_HomeVC: UITableViewController {
+class KF_HomeVC: UITableViewController {
 
     // MARK: - CONSTANTS
     let tableRowHeight: CGFloat = 90
-    let cellId = "FF_HomeCell"
+    let cellId = "KF_HomeCell"
     
     // MARK: - VARIABLES
+    var viewModel: KF_HomeVM = {
+        return KF_HomeVM()
+    }()
     var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.hidesWhenStopped = true
@@ -32,6 +33,7 @@ class FF_HomeVC: UITableViewController {
         setNavBar()
         setupTableView()
         startLoader()
+        viewModel.loadData()
     }
 
     // MARK: - SET NAVIGATION BAR
@@ -44,7 +46,7 @@ class FF_HomeVC: UITableViewController {
     func setupTableView() {
         self.refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.register(FF_HomeCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(KF_HomeCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = tableRowHeight
         tableView.rowHeight = UITableView.automaticDimension
@@ -54,6 +56,7 @@ class FF_HomeVC: UITableViewController {
     // MARK: - REFRESH DATA
     @objc func refreshData() {
         refreshControl?.beginRefreshing()
+        viewModel.loadData()
     }
     
     //MARK: - START LOADING
@@ -71,19 +74,22 @@ class FF_HomeVC: UITableViewController {
         }
     }
 
+    
 }
 
 // MARK: - TABLE EXTENSION
-extension FF_HomeVC {
+extension KF_HomeVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.facts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! FF_HomeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! KF_HomeCell
         //bind cell data
-        cell.bindData()
+        cell.bindData(fact: viewModel.facts[indexPath.row])
         return cell
     }
 
 }
+
+
