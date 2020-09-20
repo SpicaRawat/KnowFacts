@@ -15,13 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = ViewController()
-        let navBarVC = UINavigationController(rootViewController: rootVC)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = navBarVC
-
+        setInitialController()
         return true
     }
 }
 
+extension AppDelegate {
+    // MARK: - INITIAL CONTROLLER
+    func setInitialController() {
+        let rootVC = FF_HomeVC()
+        let navBarVC = UINavigationController(rootViewController: rootVC)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = navBarVC
+    }
+    
+    // MARK: - Appdelegate
+    class func delegate() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+}
