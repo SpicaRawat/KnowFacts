@@ -12,6 +12,8 @@ target 'KnowFacts' do
   target 'KnowFactsTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'OHHTTPStubs/Swift', '9.0.0'
+
   end
 
 end

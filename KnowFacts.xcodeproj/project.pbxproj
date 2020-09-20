@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		20536D0C5056CF539C9BC912 /* Pods_KnowFactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09CB9BA094F83B6363371C /* Pods_KnowFactsTests.framework */; };
 		2274732125175C3A00AB7708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274732025175C3A00AB7708 /* AppDelegate.swift */; };
-		2274732525175C3A00AB7708 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274732425175C3A00AB7708 /* ViewController.swift */; };
 		2274732A25175C4400AB7708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2274732925175C4400AB7708 /* Assets.xcassets */; };
 		2274732D25175C4400AB7708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2274732B25175C4400AB7708 /* LaunchScreen.storyboard */; };
-		2274733825175C4500AB7708 /* KnowFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274733725175C4500AB7708 /* KnowFactsTests.swift */; };
 		22747347251760B600AB7708 /* KF_HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22747346251760B600AB7708 /* KF_HomeVC.swift */; };
 		227473492517611D00AB7708 /* KF_HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227473482517611D00AB7708 /* KF_HomeCell.swift */; };
 		2274734E251761D600AB7708 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274734D251761D600AB7708 /* UIView+Constraints.swift */; };
@@ -23,6 +21,10 @@
 		22C9FD8825177DE7003A4CEF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8725177DE7003A4CEF /* Reachability.swift */; };
 		22C9FD8A25177E33003A4CEF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8925177E33003A4CEF /* Helper.swift */; };
 		22C9FD8C25177E63003A4CEF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8B25177E63003A4CEF /* APIManager.swift */; };
+		22C9FD8E25178EA4003A4CEF /* APIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8D25178EA4003A4CEF /* APIStub.swift */; };
+		22C9FD9025178ED1003A4CEF /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8F25178ED1003A4CEF /* APIManagerTests.swift */; };
+		22C9FD952517906C003A4CEF /* InvalidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 22C9FD942517906C003A4CEF /* InvalidResponse.json */; };
+		22C9FD9825179117003A4CEF /* APIResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 22C9FD9725179117003A4CEF /* APIResponse.json */; };
 		B825B0A77057EA7D2F3D6B3B /* Pods_KnowFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297AEC3D46F99BC071A723F3 /* Pods_KnowFacts.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,12 +42,10 @@
 		1B3FA38E4B3D1CB7DF61AE45 /* Pods-KnowFactsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFactsTests.debug.xcconfig"; path = "Target Support Files/Pods-KnowFactsTests/Pods-KnowFactsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2274731D25175C3A00AB7708 /* KnowFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2274732025175C3A00AB7708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2274732425175C3A00AB7708 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2274732925175C4400AB7708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2274732C25175C4400AB7708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2274732E25175C4400AB7708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2274733325175C4500AB7708 /* KnowFactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnowFactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2274733725175C4500AB7708 /* KnowFactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowFactsTests.swift; sourceTree = "<group>"; };
 		2274733925175C4500AB7708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22747346251760B600AB7708 /* KF_HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KF_HomeVC.swift; sourceTree = "<group>"; };
 		227473482517611D00AB7708 /* KF_HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KF_HomeCell.swift; sourceTree = "<group>"; };
@@ -57,6 +57,10 @@
 		22C9FD8725177DE7003A4CEF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		22C9FD8925177E33003A4CEF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		22C9FD8B25177E63003A4CEF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		22C9FD8D25178EA4003A4CEF /* APIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStub.swift; sourceTree = "<group>"; };
+		22C9FD8F25178ED1003A4CEF /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
+		22C9FD942517906C003A4CEF /* InvalidResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = InvalidResponse.json; sourceTree = "<group>"; };
+		22C9FD9725179117003A4CEF /* APIResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = APIResponse.json; sourceTree = "<group>"; };
 		297AEC3D46F99BC071A723F3 /* Pods_KnowFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BD3CE3807920433AD9E9D2 /* Pods-KnowFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFacts.debug.xcconfig"; path = "Target Support Files/Pods-KnowFacts/Pods-KnowFacts.debug.xcconfig"; sourceTree = "<group>"; };
 		BA5CF2B07365757C207DB979 /* Pods-KnowFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFacts.release.xcconfig"; path = "Target Support Files/Pods-KnowFacts/Pods-KnowFacts.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,8 +126,9 @@
 		2274733625175C4500AB7708 /* KnowFactsTests */ = {
 			isa = PBXGroup;
 			children = (
-				2274733725175C4500AB7708 /* KnowFactsTests.swift */,
 				2274733925175C4500AB7708 /* Info.plist */,
+				22C9FD9125178EED003A4CEF /* ServicesTest */,
+				22C9FD96251790A6003A4CEF /* Resources */,
 			);
 			path = KnowFactsTests;
 			sourceTree = "<group>";
@@ -158,7 +163,6 @@
 		22747345251760A200AB7708 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2274732425175C3A00AB7708 /* ViewController.swift */,
 				22747346251760B600AB7708 /* KF_HomeVC.swift */,
 			);
 			path = Controller;
@@ -232,6 +236,24 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		22C9FD9125178EED003A4CEF /* ServicesTest */ = {
+			isa = PBXGroup;
+			children = (
+				22C9FD8D25178EA4003A4CEF /* APIStub.swift */,
+				22C9FD8F25178ED1003A4CEF /* APIManagerTests.swift */,
+			);
+			path = ServicesTest;
+			sourceTree = "<group>";
+		};
+		22C9FD96251790A6003A4CEF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22C9FD942517906C003A4CEF /* InvalidResponse.json */,
+				22C9FD9725179117003A4CEF /* APIResponse.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E23B1CE6A8A0949742BDB3B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +304,7 @@
 				2274732F25175C4500AB7708 /* Sources */,
 				2274733025175C4500AB7708 /* Frameworks */,
 				2274733125175C4500AB7708 /* Resources */,
+				8BA4A3014037C0F59AA5FA4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,6 +368,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C9FD952517906C003A4CEF /* InvalidResponse.json in Resources */,
+				22C9FD9825179117003A4CEF /* APIResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +415,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KnowFacts/Pods-KnowFacts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8BA4A3014037C0F59AA5FA4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KnowFactsTests/Pods-KnowFactsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KnowFactsTests/Pods-KnowFactsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KnowFactsTests/Pods-KnowFactsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		96E48CEC0E51D91B85FC16F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,7 +465,6 @@
 				227473492517611D00AB7708 /* KF_HomeCell.swift in Sources */,
 				22747347251760B600AB7708 /* KF_HomeVC.swift in Sources */,
 				2274734E251761D600AB7708 /* UIView+Constraints.swift in Sources */,
-				2274732525175C3A00AB7708 /* ViewController.swift in Sources */,
 				227473592517759800AB7708 /* Fact.swift in Sources */,
 				2274732125175C3A00AB7708 /* AppDelegate.swift in Sources */,
 				227473582517759800AB7708 /* FactsData.swift in Sources */,
@@ -438,7 +479,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2274733825175C4500AB7708 /* KnowFactsTests.swift in Sources */,
+				22C9FD8E25178EA4003A4CEF /* APIStub.swift in Sources */,
+				22C9FD9025178ED1003A4CEF /* APIManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
