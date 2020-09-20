@@ -2,7 +2,7 @@
 //  KF_HomeVM.swift
 //  KnowFacts
 //
-//  Created by Spica Rawat on 17/09/20.
+//  Created by Spica Rawat on 20/09/20.
 //  Copyright © 2020 spicarawat. All rights reserved.
 //
 
@@ -16,6 +16,10 @@ class KF_HomeVM {
     var facts = [Fact]()
     var reachability = Reachability()
     var isLoading = false
+    var handleInternetError: (() -> Void)?
+    var completionWithSuccess: (() -> Void)?
+    var completionWithErr: ((Error) -> Void)?
+    var completionWithNoData: (() -> Void)?
     var apiManager = APIManager()
 
     
@@ -32,6 +36,7 @@ class KF_HomeVM {
     {
         
         guard reachability.isConnectedToInternet() else {
+            handleInternetError?()
             return
         }
         isLoading = true
@@ -43,6 +48,7 @@ class KF_HomeVM {
                 self?.navTitle = fact.title ?? ""
 
                 guard !fact.rows.isEmpty else {
+                    self?.completionWithNoData?()
                     return
                 }
                 self?.facts = fact.rows.compactMap {
@@ -52,8 +58,9 @@ class KF_HomeVM {
                     }
                     return nil
                 }
+                self?.completionWithSuccess?()
             case .failure(let error):
-                print(error)
+                self?.completionWithErr?(error)
             }
         }
     }

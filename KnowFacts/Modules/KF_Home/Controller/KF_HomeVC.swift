@@ -32,6 +32,7 @@ class KF_HomeVC: UITableViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         setNavBar()
         setupTableView()
+        handleCallbacks()
         startLoader()
         viewModel.loadData()
     }
@@ -57,6 +58,41 @@ class KF_HomeVC: UITableViewController {
     @objc func refreshData() {
         refreshControl?.beginRefreshing()
         viewModel.loadData()
+    }
+    
+    // MARK: - HANDLE CALLBACKS
+    func handleCallbacks() {
+        viewModel.handleInternetError = {[weak self] in
+            DispatchQueue.main.async {
+                Helpers.instance.showAlertWithTitle(messageBody: "No Internet Connection") {
+                    self?.updateLoader()
+                }
+            }
+        }
+        
+        viewModel.completionWithSuccess = {[weak self] in
+            DispatchQueue.main.async {
+                self?.updateLoader()
+                self?.title = self?.viewModel.navTitle ?? ""
+                self?.tableView.reloadData()
+            }
+        }
+
+        viewModel.completionWithErr = {[weak self] error in
+            DispatchQueue.main.async {
+                Helpers.instance.showAlertWithTitle(messageBody: error.localizedDescription) {
+                    self?.updateLoader()
+                }
+            }
+        }
+
+        viewModel.completionWithNoData = {[weak self] in
+            DispatchQueue.main.async {
+                Helpers.instance.showAlertWithTitle(messageBody: "No Data") {
+                    self?.updateLoader()
+                }
+            }
+        }
     }
     
     //MARK: - START LOADING
@@ -91,5 +127,6 @@ extension KF_HomeVC {
     }
 
 }
+
 
 
