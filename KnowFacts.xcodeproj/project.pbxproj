@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20536D0C5056CF539C9BC912 /* Pods_KnowFactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09CB9BA094F83B6363371C /* Pods_KnowFactsTests.framework */; };
+		2222C64E2517922000FEC0E6 /* KF_HomeVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C64D2517922000FEC0E6 /* KF_HomeVMTests.swift */; };
+		2222C650251792E300FEC0E6 /* KF_HomeCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C64F251792E300FEC0E6 /* KF_HomeCellTests.swift */; };
 		2274732125175C3A00AB7708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274732025175C3A00AB7708 /* AppDelegate.swift */; };
 		2274732A25175C4400AB7708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2274732925175C4400AB7708 /* Assets.xcassets */; };
 		2274732D25175C4400AB7708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2274732B25175C4400AB7708 /* LaunchScreen.storyboard */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		1B3FA38E4B3D1CB7DF61AE45 /* Pods-KnowFactsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFactsTests.debug.xcconfig"; path = "Target Support Files/Pods-KnowFactsTests/Pods-KnowFactsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2222C64D2517922000FEC0E6 /* KF_HomeVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KF_HomeVMTests.swift; sourceTree = "<group>"; };
+		2222C64F251792E300FEC0E6 /* KF_HomeCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KF_HomeCellTests.swift; sourceTree = "<group>"; };
 		2274731D25175C3A00AB7708 /* KnowFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2274732025175C3A00AB7708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2274732925175C4400AB7708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2222C64B251791E900FEC0E6 /* ModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				2222C64C251791FE00FEC0E6 /* KF_Home */,
+			);
+			path = ModuleTests;
+			sourceTree = "<group>";
+		};
+		2222C64C251791FE00FEC0E6 /* KF_Home */ = {
+			isa = PBXGroup;
+			children = (
+				2222C64D2517922000FEC0E6 /* KF_HomeVMTests.swift */,
+				2222C64F251792E300FEC0E6 /* KF_HomeCellTests.swift */,
+			);
+			path = KF_Home;
+			sourceTree = "<group>";
+		};
 		2274731425175C3A00AB7708 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +147,7 @@
 		2274733625175C4500AB7708 /* KnowFactsTests */ = {
 			isa = PBXGroup;
 			children = (
+				2222C64B251791E900FEC0E6 /* ModuleTests */,
 				2274733925175C4500AB7708 /* Info.plist */,
 				22C9FD9125178EED003A4CEF /* ServicesTest */,
 				22C9FD96251790A6003A4CEF /* Resources */,
@@ -480,6 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22C9FD8E25178EA4003A4CEF /* APIStub.swift in Sources */,
+				2222C650251792E300FEC0E6 /* KF_HomeCellTests.swift in Sources */,
+				2222C64E2517922000FEC0E6 /* KF_HomeVMTests.swift in Sources */,
 				22C9FD9025178ED1003A4CEF /* APIManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
