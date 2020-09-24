@@ -1,8 +1,5 @@
 *.lock
-*.xcworkspace
 *.xcuserstate
-Pods
-Pods/
 *.DS_Store
 xcuserdata/
 ## Build generated
