@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (5.2.0)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+  - OHHTTPStubs/Swift (9.0.0):
+    - OHHTTPStubs/Default
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (= 5.2)
+  - OHHTTPStubs/Swift (= 9.0.0)
+  - SDWebImage (= 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - OHHTTPStubs
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: c1ca147559e730bfb2182c8c7aafbdd90a867987
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+
+PODFILE CHECKSUM: c732ddb698aa0cf1b37d81e1cb89c16ac769d066
+
+COCOAPODS: 1.9.2

@@ -1,4 +1,3 @@
-*.lock
 *.xcuserstate
 *.DS_Store
 xcuserdata/
