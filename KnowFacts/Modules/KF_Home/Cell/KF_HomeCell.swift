@@ -36,16 +36,10 @@ class KF_HomeCell: UITableViewCell {
         return lbl
     }()
     
-    let imageBackgroundView: UIView = {
-        let view = UIView()
-        view.clipsToBounds = true
-        return view
-    }()
-    
     let factImage: UIImageView = {
         let img = UIImageView()
         img.clipsToBounds = true
-        img.contentMode = .scaleToFill
+        img.contentMode = .scaleAspectFit
         return img
     }()
     
@@ -58,27 +52,22 @@ class KF_HomeCell: UITableViewCell {
         borderVw.addConstraints(cornerConstraints: cornerConstraintForborderVw, centerY: nil, centerX: nil, height: 0, width: 0)
         
         borderVw.addSubview(titleLbl)
+        borderVw.addSubview(factImage)
         borderVw.addSubview(descLbl)
-        borderVw.addSubview(imageBackgroundView)
 
         //titleLbl
-        let cornerConstraintFortitleLbl = ConrnerAnchor(top: (borderVw.topAnchor, constantPadding), bottom: (imageBackgroundView.topAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (borderVw.rightAnchor, constantPadding))
+        let cornerConstraintFortitleLbl = ConrnerAnchor(top: (borderVw.topAnchor, constantPadding), bottom: (factImage.topAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (borderVw.rightAnchor, constantPadding))
         titleLbl.addConstraints(cornerConstraints: cornerConstraintFortitleLbl, centerY: nil, centerX: nil, height: 0, width: 0)
-        descLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
-        
+        titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
+
+        //factImage
+        let cornerConstraintForItemImg = ConrnerAnchor(top: (titleLbl.bottomAnchor, constantPadding), bottom: (descLbl.topAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (nil,0))
+        factImage.addConstraints(cornerConstraints: cornerConstraintForItemImg, centerY: nil, centerX: nil, height: 100, width: 100)
+
         //descLbl
-        let cornerConstraintFordescLbl = ConrnerAnchor(top: (imageBackgroundView.bottomAnchor, constantPadding), bottom: (borderVw.bottomAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (borderVw.rightAnchor, constantPadding))
+        let cornerConstraintFordescLbl = ConrnerAnchor(top: (factImage.bottomAnchor, constantPadding), bottom: (borderVw.bottomAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (borderVw.rightAnchor, constantPadding))
         descLbl.addConstraints(cornerConstraints: cornerConstraintFordescLbl, centerY: nil, centerX: nil, height: 0, width: 0)
         descLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
-        
-        //imageBackgroundView
-        let cornerConstraintForimageBackgroundView = ConrnerAnchor(top: (titleLbl.bottomAnchor, constantPadding), bottom: (descLbl.topAnchor, constantPadding), left: (borderVw.leftAnchor, constantPadding), right: (borderVw.rightAnchor, constantPadding))
-        imageBackgroundView.addConstraints(cornerConstraints: cornerConstraintForimageBackgroundView, centerY: nil, centerX: nil, height: 0, width: 0)
-        
-        //factImage
-        imageBackgroundView.addSubview(factImage)
-        let cornerConstraintForItemImg = ConrnerAnchor(top: (imageBackgroundView.topAnchor, 0), bottom: (imageBackgroundView.bottomAnchor, 0), left: (imageBackgroundView.leftAnchor, 0), right: (nil,0))
-        factImage.addConstraints(cornerConstraints: cornerConstraintForItemImg, centerY: nil, centerX: nil, height: 0, width: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -89,6 +78,6 @@ class KF_HomeCell: UITableViewCell {
     func bindData(fact: Fact) {
         titleLbl.text = fact.title ?? ""
         descLbl.text = fact.description ?? ""
-        factImage.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: UIImage(named: ""))
+        factImage.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
     }
 }
