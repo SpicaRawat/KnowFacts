@@ -42,6 +42,7 @@ class KF_HomeCell: UITableViewCell {
         img.contentMode = .scaleAspectFit
         return img
     }()
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super .init(style: style, reuseIdentifier: reuseIdentifier)
@@ -75,9 +76,13 @@ class KF_HomeCell: UITableViewCell {
     }
     
     // MARK: - BIND DATA
-    func bindData(fact: Fact) {
+    func bindData(fact: Fact, cache: NSCache<NSString,UIImage>) {
         titleLbl.text = fact.title ?? ""
         descLbl.text = fact.description ?? ""
-        factImage.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        if let url = fact.imageHref {
+            factImage.image = cache.object(forKey: url as NSString) ?? UIImage(named: "placeholder.png")
+        } else {
+            factImage.image = UIImage(named: "placeholder.png")
+        }
     }
 }

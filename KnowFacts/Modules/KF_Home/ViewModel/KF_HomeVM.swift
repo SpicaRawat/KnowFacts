@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
 
 class KF_HomeVM {
 
@@ -21,7 +22,8 @@ class KF_HomeVM {
     var completionWithErr: ((Error) -> Void)?
     var completionWithNoData: (() -> Void)?
     var apiManager = APIManager()
-
+    let downloadingOperations = DownloadProgressOperations()
+    var reloadRows: (([IndexPath]) -> Void)?
     
     // MARK: - LOAD DATA
     func loadData() {
@@ -61,6 +63,72 @@ class KF_HomeVM {
                 self?.completionWithSuccess?()
             case .failure(let error):
                 self?.completionWithErr?(error)
+            }
+        }
+    }
+    
+    // MARK: - DOWNLOAD IMAGE
+    func startDownload(for imageURLString: String?, at indexPath: IndexPath) {
+        
+        guard downloadingOperations.downloadsInProgress[indexPath] == nil, let imageURLString = imageURLString, let imageURL = URL(string: imageURLString), downloadingOperations.imageCache.object(forKey: imageURLString as NSString) == nil else
+        {
+            return
+        }
+
+        let downloader = ImageDownloader(imageURL)
+        
+        downloader.downloadImage { (image) in
+            self.downloadingOperations.imageCache.setObject(image, forKey: imageURLString as NSString)
+        }
+
+        downloader.completionBlock = {
+            if downloader.isCancelled {
+              return
+            }
+
+            DispatchQueue.main.async {
+              self.downloadingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                self.reloadRows?([indexPath])
+            }
+      }
+      
+      downloadingOperations.downloadsInProgress[indexPath] = downloader
+      
+      downloadingOperations.downloadQueue.addOperation(downloader)
+    }
+    
+    // MARK: - SUSPEND DOWNLOAD IMAGE
+    func suspendAllOperations() {
+      downloadingOperations.downloadQueue.isSuspended = true
+    }
+
+    // MARK: - RESUME DOWNLOAD IMAGE
+    func resumeAllOperations() {
+      downloadingOperations.downloadQueue.isSuspended = false
+    }
+
+    // MARK: - DOWNLOAD IMAGE FOR VISIBLE CELLS
+    func loadImagesForOnscreenCells(indexPathsForVisibleRows: [IndexPath]?) {
+        if let pathsArray = indexPathsForVisibleRows {
+            let allPendingOperations = Set(downloadingOperations.downloadsInProgress.keys)
+            var toBeCancelled = allPendingOperations
+            let visiblePaths = Set(pathsArray)
+            toBeCancelled.subtract(visiblePaths)
+
+            var toBeStarted = visiblePaths
+            toBeStarted.subtract(allPendingOperations)
+              
+            for indexPath in toBeCancelled {
+              if let pendingDownload = downloadingOperations.downloadsInProgress[indexPath] {
+                pendingDownload.cancel()
+              }
+              downloadingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+            }
+              
+            for indexPath in toBeStarted {
+              if let recordToProcess = facts[indexPath.row].imageHref {
+                  startDownload(for: recordToProcess, at: indexPath)
+              }
             }
         }
     }

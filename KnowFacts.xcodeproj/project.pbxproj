@@ -27,6 +27,7 @@
 		22C9FD9025178ED1003A4CEF /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9FD8F25178ED1003A4CEF /* APIManagerTests.swift */; };
 		22C9FD952517906C003A4CEF /* InvalidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 22C9FD942517906C003A4CEF /* InvalidResponse.json */; };
 		22C9FD9825179117003A4CEF /* APIResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 22C9FD9725179117003A4CEF /* APIResponse.json */; };
+		22E32B0B2524BBDB00D3E78D /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E32B0A2524BBDB00D3E78D /* ImageDownloader.swift */; };
 		B825B0A77057EA7D2F3D6B3B /* Pods_KnowFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297AEC3D46F99BC071A723F3 /* Pods_KnowFacts.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		22C9FD8F25178ED1003A4CEF /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		22C9FD942517906C003A4CEF /* InvalidResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = InvalidResponse.json; sourceTree = "<group>"; };
 		22C9FD9725179117003A4CEF /* APIResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = APIResponse.json; sourceTree = "<group>"; };
+		22E32B0A2524BBDB00D3E78D /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		297AEC3D46F99BC071A723F3 /* Pods_KnowFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BD3CE3807920433AD9E9D2 /* Pods-KnowFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFacts.debug.xcconfig"; path = "Target Support Files/Pods-KnowFacts/Pods-KnowFacts.debug.xcconfig"; sourceTree = "<group>"; };
 		BA5CF2B07365757C207DB979 /* Pods-KnowFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowFacts.release.xcconfig"; path = "Target Support Files/Pods-KnowFacts/Pods-KnowFacts.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				22C9FD8B25177E63003A4CEF /* APIManager.swift */,
+				22E32B0A2524BBDB00D3E78D /* ImageDownloader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				2274732125175C3A00AB7708 /* AppDelegate.swift in Sources */,
 				227473582517759800AB7708 /* FactsData.swift in Sources */,
 				22C9FD8A25177E33003A4CEF /* Helper.swift in Sources */,
+				22E32B0B2524BBDB00D3E78D /* ImageDownloader.swift in Sources */,
 				22C9FD8C25177E63003A4CEF /* APIManager.swift in Sources */,
 				227473502517620C00AB7708 /* Constants.swift in Sources */,
 				227473572517759800AB7708 /* KF_HomeVM.swift in Sources */,

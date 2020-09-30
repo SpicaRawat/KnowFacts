@@ -93,6 +93,16 @@ class KF_HomeVC: UITableViewController {
                 }
             }
         }
+        
+        viewModel.reloadRows = { [weak self] indexpath in
+            guard let weakSelf = self else {
+                return
+            }
+            if !weakSelf.tableView.isDragging && !weakSelf.tableView.isDecelerating {
+                self?.tableView.reloadRows(at: indexpath, with: .none)
+            }
+        }
+        
     }
     
     //MARK: - START LOADING
@@ -122,11 +132,31 @@ extension KF_HomeVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! KF_HomeCell
         //bind cell data
-        cell.bindData(fact: viewModel.facts[indexPath.row])
+        cell.bindData(fact: viewModel.facts[indexPath.row],cache: viewModel.downloadingOperations.imageCache)
+        if !tableView.isDragging && !tableView.isDecelerating {
+            viewModel.startDownload(for: viewModel.facts[indexPath.row].imageHref, at: indexPath)
+        }
         return cell
     }
-
 }
 
+//MARK: - SCROLL VIEW EXTENSION
+extension KF_HomeVC {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        viewModel.suspendAllOperations()
+    }
+
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+      if !decelerate {
+        viewModel.loadImagesForOnscreenCells(indexPathsForVisibleRows: tableView.indexPathsForVisibleRows)
+        viewModel.resumeAllOperations()
+      }
+    }
+
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        viewModel.loadImagesForOnscreenCells(indexPathsForVisibleRows: tableView.indexPathsForVisibleRows)
+        viewModel.resumeAllOperations()
+    }
+}
 
 
